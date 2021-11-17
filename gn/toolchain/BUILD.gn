@@ -395,6 +395,52 @@ template("gcc_like_toolchain") {
       description = "compile_xcassets {{output}}"
     }
 
+    tool("rust_rlib") {
+      depfile = "{{output}}.d"
+
+      # TODO(fxbug.dev/47565): Replacement for rustenv
+      command = "{{rustenv}} RUST_BACKTRACE=1 rustup run nightly-2021-09-22 rustc --color=always --crate-name {{crate_name}} {{source}}"
+      command += " --crate-type {{crate_type}} --emit=dep-info=$depfile,link -Zdep-info-omit-d-target {{rustflags}}"
+      command += " -o {{output}} {{rustdeps}} {{externs}}"
+
+      description = "RUST {{output}}"
+      outputs =
+          [ "{{output_dir}}/lib{{target_output_name}}{{output_extension}}" ]
+      default_output_dir = "{{target_out_dir}}"
+      default_output_extension = ".rlib"
+    }
+
+    tool("rust_macro") {
+      depfile = "{{output}}.d"
+
+      # TODO(fxbug.dev/47565): Replacement for rustenv
+      command = "{{rustenv}} RUST_BACKTRACE=1 rustup run nightly-2021-09-22 rustc --color=always --crate-name {{crate_name}} {{source}} "
+      command += " --crate-type {{crate_type}} --emit=dep-info=$depfile,link -Zdep-info-omit-d-target {{rustflags}}"
+      command += " -o {{output}} --extern proc_macro {{rustdeps}} {{externs}}"
+
+      description = "RUST {{output}}"
+      outputs = [ "{{output_dir}}/{{target_output_name}}{{output_extension}}" ]
+      default_output_dir = "{{root_out_dir}}"
+      default_output_extension = ".so" # FIXME
+      output_prefix = "lib"
+    }
+
+    tool("rust_staticlib") {
+      depfile = "{{output}}.d"
+
+      # TODO(fxbug.dev/47565): Replacement for rustenv
+      command = "{{rustenv}} RUST_BACKTRACE=1 rustup run nightly-2021-09-22 rustc --color=always --crate-name {{crate_name}} {{source}}"
+      command += " --crate-type {{crate_type}} --emit=dep-info=$depfile,link -Zdep-info-omit-d-target {{rustflags}}"
+      command += " -o {{output}} {{rustdeps}} {{externs}}"
+
+      description = "RUST {{output}}"
+
+      outputs = [ "{{output_dir}}/{{target_output_name}}{{output_extension}}" ]
+      default_output_dir = "{{target_out_dir}}"
+      default_output_extension = ".a"
+      output_prefix = "lib"
+    }
+
     toolchain_args = {
       current_cpu = invoker.cpu
       current_os = invoker.os

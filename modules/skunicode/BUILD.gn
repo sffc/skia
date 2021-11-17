@@ -35,6 +35,7 @@ if (skia_use_icu) {
       sources += skia_unicode_builtin_icu_sources
       deps += [ "//third_party/icu" ]
     }
+    deps += [ "//third_party/icu4x:icu_capi" ]
     configs += [
       "../../:skia_private",
       "../../third_party/icu/config:no_cxx",

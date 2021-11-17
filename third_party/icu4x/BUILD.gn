@@ -288,7 +288,7 @@ rust_library("fixed_decimal-v0_2_1") {
   output_name = "fixed_decimal-e8be8a3e8ce6d943"
   
   deps = []
-  deps += [":displaydoc-v0_2_3($host_toolchain)"]
+  deps += [":displaydoc-v0_2_3"]
   deps += [":smallvec-v1_6_1"]
   deps += [":static_assertions-v1_1_0"]
   deps += [":writeable-v0_2_1"]
@@ -341,13 +341,13 @@ static_library("icu_capi-v0_1_0") {
   output_name = "icu_capi-a9f7132ddaccd0e5"
   
   deps = []
-  deps += [":diplomat-v0_2_0($host_toolchain)"]
+  deps += [":diplomat-v0_2_0"]
   deps += [":diplomat-runtime-v0_2_0"]
   deps += [":fixed_decimal-v0_2_1"]
   deps += [":icu_decimal-v0_4_0"]
   deps += [":icu_locale_canonicalizer-v0_4_0"]
   deps += [":icu_locid-v0_4_0"]
-  deps += [":icu_locid_macros-v0_4_0($host_toolchain)"]
+  deps += [":icu_locid_macros-v0_4_0"]
   deps += [":icu_plurals-v0_4_0"]
   deps += [":icu_properties-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
@@ -375,7 +375,7 @@ rust_library("icu_codepointtrie-v0_3_0") {
   output_name = "icu_codepointtrie-ce43cb9a4b1563a0"
   
   deps = []
-  deps += [":displaydoc-v0_2_3($host_toolchain)"]
+  deps += [":displaydoc-v0_2_3"]
   deps += [":serde-v1_0_128"]
   deps += [":yoke-v0_3_1"]
   deps += [":zerovec-v0_4_1"]
@@ -393,7 +393,7 @@ rust_library("icu_decimal-v0_4_0") {
   output_name = "icu_decimal-66d43cabd72cc3b7"
   
   deps = []
-  deps += [":displaydoc-v0_2_3($host_toolchain)"]
+  deps += [":displaydoc-v0_2_3"]
   deps += [":fixed_decimal-v0_2_1"]
   deps += [":icu_locid-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
@@ -431,7 +431,7 @@ rust_library("icu_locid-v0_4_0") {
   output_name = "icu_locid-39a913c48435298f"
   
   deps = []
-  deps += [":displaydoc-v0_2_3($host_toolchain)"]
+  deps += [":displaydoc-v0_2_3"]
   deps += [":serde-v1_0_128"]
   deps += [":tinystr-v0_4_10"]
   deps += [":writeable-v0_2_1"]
@@ -466,7 +466,7 @@ rust_library("icu_plurals-v0_4_0") {
   output_name = "icu_plurals-ea470c84f0e5c1df"
   
   deps = []
-  deps += [":displaydoc-v0_2_3($host_toolchain)"]
+  deps += [":displaydoc-v0_2_3"]
   deps += [":fixed_decimal-v0_2_1"]
   deps += [":icu_locid-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
@@ -487,7 +487,7 @@ rust_library("icu_properties-v0_4_0") {
   output_name = "icu_properties-d72fbb95b5a5ba09"
   
   deps = []
-  deps += [":displaydoc-v0_2_3($host_toolchain)"]
+  deps += [":displaydoc-v0_2_3"]
   deps += [":icu_codepointtrie-v0_3_0"]
   deps += [":icu_provider-v0_4_0"]
   deps += [":icu_uniset-v0_4_0"]
@@ -508,10 +508,10 @@ rust_library("icu_provider-v0_4_0") {
   output_name = "icu_provider-cdc70e1d5bd67115"
   
   deps = []
-  deps += [":displaydoc-v0_2_3($host_toolchain)"]
+  deps += [":displaydoc-v0_2_3"]
   deps += [":erased-serde-v0_3_13"]
   deps += [":icu_locid-v0_4_0"]
-  deps += [":icu_provider_macros-v0_4_0($host_toolchain)"]
+  deps += [":icu_provider_macros-v0_4_0"]
   deps += [":litemap-v0_2_2"]
   deps += [":serde-v1_0_128"]
   deps += [":tinystr-v0_4_10"]
@@ -555,7 +555,7 @@ rust_library("icu_provider_fs-v0_4_0") {
   
   deps = []
   deps += [":bincode-v1_3_3"]
-  deps += [":displaydoc-v0_2_3($host_toolchain)"]
+  deps += [":displaydoc-v0_2_3"]
   deps += [":erased-serde-v0_3_13"]
   deps += [":icu_locid-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
@@ -596,7 +596,7 @@ rust_library("icu_testdata-v0_4_0") {
   
   deps = []
   deps += [":cargo_metadata-v0_13_1"]
-  deps += [":displaydoc-v0_2_3($host_toolchain)"]
+  deps += [":displaydoc-v0_2_3"]
   deps += [":icu_locid-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
   deps += [":icu_provider_blob-v0_4_0"]
@@ -605,7 +605,11 @@ rust_library("icu_testdata-v0_4_0") {
   deps += [":serde_json-v1_0_64"]
   deps += [":writeable-v0_2_1"]
 
-  rustenv = []
+  rustenv = [
+    "CARGO_PKG_NAME=icu_testdata",
+    # FIXME
+    "CARGO_MANIFEST_DIR=/home/sffc/projects/skia/third_party/externals/icu4x/provider/testdata",
+  ]
 
   rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=950fe84e3f8329ed","-Cextra-filename=-950fe84e3f8329ed","--cfg=feature=\"cargo_metadata\"","--cfg=feature=\"default\"","--cfg=feature=\"displaydoc\"","--cfg=feature=\"fs\"","--cfg=feature=\"icu_provider_blob\"","--cfg=feature=\"icu_provider_fs\"","--cfg=feature=\"metadata\"","--cfg=feature=\"serde\"","--cfg=feature=\"serde_json\"","--cfg=feature=\"static\"","--cfg=feature=\"std\"","--cfg=feature=\"writeable\""]
 
@@ -618,7 +622,7 @@ rust_library("icu_uniset-v0_4_0") {
   output_name = "icu_uniset-9fa22a12a9d93347"
   
   deps = []
-  deps += [":displaydoc-v0_2_3($host_toolchain)"]
+  deps += [":displaydoc-v0_2_3"]
   deps += [":litemap-v0_2_2"]
   deps += [":serde-v1_0_128"]
   deps += [":tinystr-v0_4_10"]
@@ -739,8 +743,8 @@ rust_library("num_enum-v0_5_4") {
   output_name = "num_enum-63c1b5d22e2d11a9"
   
   deps = []
-  deps += [":derivative-v2_2_0($host_toolchain)"]
-  deps += [":num_enum_derive-v0_5_4($host_toolchain)"]
+  deps += [":derivative-v2_2_0"]
+  deps += [":num_enum_derive-v0_5_4"]
 
   rustenv = []
 
@@ -909,7 +913,7 @@ rust_library("serde-v1_0_128") {
   output_name = "serde-de2db11aea0311b7"
   
   deps = []
-  deps += [":serde_derive-v1_0_128($host_toolchain)"]
+  deps += [":serde_derive-v1_0_128"]
 
   rustenv = []
 
@@ -1053,7 +1057,7 @@ rust_library("thiserror-v1_0_24") {
   output_name = "thiserror-b6923b5376cf20d1"
   
   deps = []
-  deps += [":thiserror-impl-v1_0_24($host_toolchain)"]
+  deps += [":thiserror-impl-v1_0_24"]
 
   rustenv = []
 
@@ -1086,7 +1090,7 @@ rust_library("tinystr-v0_4_10") {
   
   deps = []
   deps += [":serde-v1_0_128"]
-  deps += [":tinystr-macros-v0_2_0($host_toolchain)"]
+  deps += [":tinystr-macros-v0_2_0"]
   deps += [":tinystr-raw-v0_1_3"]
 
   rustenv = []
@@ -1233,7 +1237,7 @@ rust_library("yoke-v0_3_1") {
   deps = []
   deps += [":serde-v1_0_128"]
   deps += [":stable_deref_trait-v1_2_0"]
-  deps += [":yoke-derive-v0_1_2($host_toolchain)"]
+  deps += [":yoke-derive-v0_1_2"]
 
   rustenv = []
 
