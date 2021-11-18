@@ -9,6 +9,40 @@ host_toolchain = ""
 
 import("../rust_helpers.gni")
 
+template("rust_library") {
+  rust_library(target_name) {
+    forward_variables_from(invoker, "*", [])
+    # TODO: Change this based on target_os and target_cpu
+    rustflags += ["--target=wasm32-unknown-unknown"]
+  }
+}
+
+template("static_library") {
+  static_library(target_name) {
+    forward_variables_from(invoker, "*", [])
+    # TODO: Change this based on target_os and target_cpu
+    rustflags += ["--target=wasm32-unknown-unknown"]
+  }
+}
+
+# Don't compile rust_proc_macro for the target; redirect to the host version
+template("rust_proc_macro") {
+  # The following lines are to get around "Assignment had no effect" errors.
+  forward_variables_from(invoker, "*", [])
+  crate_name = []
+  crate_root = []
+  deps = []
+  output_name = []
+  rustenv = []
+  rustflags = []
+
+  group(target_name) {
+    deps = [
+      "../host:" + target_name
+    ]
+  }
+}
+
 ### END SKIA PATCH
 
 

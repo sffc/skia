@@ -10,5 +10,5 @@ config("config") {
 }
 
 group("icu_capi") {
-  deps = ["host:icu_capi"]
+  deps = ["target:icu_capi"]
 }
