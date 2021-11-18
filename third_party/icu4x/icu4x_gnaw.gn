@@ -355,16 +355,13 @@ static_library("icu_capi-v0_1_0") {
   deps += [":icu_testdata-v0_4_0"]
   deps += [":tinystr-v0_4_10"]
   deps += [":writeable-v0_2_1"]
-if (!((false || false))) {
-  deps += [":icu_provider_fs-v0_4_0"]
-}
-if (false) {
+if (current_cpu == "wasm") {
   deps += [":log-v0_4_14"]
 }
 
   rustenv = ["CARGO_PKG_NAME=icu_capi","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/ffi/diplomat")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=a9f7132ddaccd0e5","-Cextra-filename=-a9f7132ddaccd0e5","--cfg=feature=\"default\"","--cfg=feature=\"icu_provider_fs\"","--cfg=feature=\"icu_testdata\"","--cfg=feature=\"provider_fs\"","--cfg=feature=\"provider_static\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=a9f7132ddaccd0e5","-Cextra-filename=-a9f7132ddaccd0e5","--cfg=feature=\"default\"","--cfg=feature=\"icu_testdata\"","--cfg=feature=\"provider_static\""]
 
   
 }
@@ -600,14 +597,16 @@ rust_library("icu_testdata-v0_4_0") {
   deps += [":icu_locid-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
   deps += [":icu_provider_blob-v0_4_0"]
-  deps += [":icu_provider_fs-v0_4_0"]
   deps += [":serde-v1_0_128"]
   deps += [":serde_json-v1_0_64"]
   deps += [":writeable-v0_2_1"]
+if (!((current_cpu == "wasm" || false))) {
+  deps += [":icu_provider_fs-v0_4_0"]
+}
 
   rustenv = ["CARGO_PKG_NAME=icu_testdata","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/provider/testdata")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=950fe84e3f8329ed","-Cextra-filename=-950fe84e3f8329ed","--cfg=feature=\"cargo_metadata\"","--cfg=feature=\"default\"","--cfg=feature=\"displaydoc\"","--cfg=feature=\"fs\"","--cfg=feature=\"icu_provider_blob\"","--cfg=feature=\"icu_provider_fs\"","--cfg=feature=\"metadata\"","--cfg=feature=\"serde\"","--cfg=feature=\"serde_json\"","--cfg=feature=\"static\"","--cfg=feature=\"std\"","--cfg=feature=\"writeable\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=950fe84e3f8329ed","-Cextra-filename=-950fe84e3f8329ed","--cfg=feature=\"cargo_metadata\"","--cfg=feature=\"default\"","--cfg=feature=\"displaydoc\"","--cfg=feature=\"icu_provider_blob\"","--cfg=feature=\"icu_provider_fs\"","--cfg=feature=\"metadata\"","--cfg=feature=\"serde\"","--cfg=feature=\"serde_json\"","--cfg=feature=\"static\"","--cfg=feature=\"std\"","--cfg=feature=\"writeable\""]
 
   
 }
