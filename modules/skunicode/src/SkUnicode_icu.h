@@ -14,6 +14,9 @@
 #include <unicode/utext.h>
 #include <unicode/utypes.h>
 
+#include <ICU4XCodePointMapData16.h>
+#include <ICU4XCodePointMapData16Response.h>
+
 #include "include/private/SkTemplates.h"
 
 #define SKICU_EMIT_FUNCS              \

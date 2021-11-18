@@ -259,14 +259,38 @@ class SkIcuBreakIteratorCache {
 class SkScriptIterator_icu : public SkScriptIterator {
  public:
    bool getScript(SkUnichar u, ScriptID* script) override {
+        /*
         UErrorCode status = U_ZERO_ERROR;
         UScriptCode scriptCode = sk_uscript_getScript(u, &status);
         if (U_FAILURE (status)) {
             return false;
         }
+        */
+        /*
+        auto dp = ICU4XDataProvider::create_fs("/home/sffc/projects/skia/third_party/externals/icu4x/provider/testdata/data/json").provider.value();
+        auto result = ICU4XCodePointMapData16::try_get_script(dp);
+        if (!result.success) {
+            return false;
+        }
+        uint16_t scriptCode = result.data.value().get(u);
+        */
+        auto path = "/home/sffc/projects/skia/third_party/externals/icu4x/provider/testdata/data/json";
+        auto dp = ICU4XDataProvider_create_fs(path, strlen(path));
+        if (!dp.success) {
+            // TODO: Cleanup
+            return false;
+        }
+        auto result = ICU4XCodePointMapData16_try_get_script(dp.provider);
+        if (!result.success) {
+            // TODO: Cleanup
+            return false;
+        }
+        uint16_t scriptCode = ICU4XCodePointMapData16_get(result.data, u);
         if (script) {
             *script = (ScriptID)scriptCode;
         }
+        ICU4XDataProvider_destroy(dp.provider);
+        ICU4XCodePointMapData16_destroy(result.data);
         return true;
    }
 

@@ -39,6 +39,7 @@ if (skia_use_icu) {
     configs += [
       "../../:skia_private",
       "../../third_party/icu/config:no_cxx",
+      "../../third_party/icu4x:config",
     ]
   }
 } else {
