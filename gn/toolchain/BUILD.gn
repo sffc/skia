@@ -402,6 +402,7 @@ template("gcc_like_toolchain") {
       command = "{{rustenv}} RUST_BACKTRACE=1 rustup run nightly-2021-09-22 rustc --color=always --crate-name {{crate_name}} {{source}}"
       command += " --crate-type {{crate_type}} --emit=dep-info=$depfile,link -Zdep-info-omit-d-target {{rustflags}}"
       command += " -o {{output}} {{rustdeps}} {{externs}}"
+      command += " -Clink-arg=-flto -Copt-level=s"
 
       description = "RUST {{output}}"
       outputs =
@@ -434,6 +435,7 @@ template("gcc_like_toolchain") {
       command += " --crate-type {{crate_type}} --emit=dep-info=$depfile,link -Zdep-info-omit-d-target"
       command += " {{rustflags}}"
       command += " -o {{output}} {{rustdeps}} {{externs}}"
+      command += " -Clink-arg=-flto -Copt-level=s"
 
       description = "RUST {{output}}"
 

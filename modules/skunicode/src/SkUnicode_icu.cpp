@@ -265,7 +265,7 @@ class SkScriptIterator_icu : public SkScriptIterator {
         if (U_FAILURE (status)) {
             return false;
         }
-        */
+        // */
         /*
         auto dp = ICU4XDataProvider::create_fs("/home/sffc/projects/skia/third_party/externals/icu4x/provider/testdata/data/json").provider.value();
         auto result = ICU4XCodePointMapData16::try_get_script(dp);
@@ -273,14 +273,13 @@ class SkScriptIterator_icu : public SkScriptIterator {
             return false;
         }
         uint16_t scriptCode = result.data.value().get(u);
-        */
-        auto path = "/home/sffc/projects/skia/third_party/externals/icu4x/provider/testdata/data/json";
-        auto dp = ICU4XDataProvider_create_fs(path, strlen(path));
+        // */
+        auto dp = ICU4XStaticDataProvider_create_empty();
         if (!dp.success) {
             // TODO: Cleanup
             return false;
         }
-        auto result = ICU4XCodePointMapData16_try_get_script(dp.provider);
+        auto result = ICU4XCodePointMapData16_try_get_script_from_static(dp.provider);
         if (!result.success) {
             // TODO: Cleanup
             return false;
@@ -289,8 +288,9 @@ class SkScriptIterator_icu : public SkScriptIterator {
         if (script) {
             *script = (ScriptID)scriptCode;
         }
-        ICU4XDataProvider_destroy(dp.provider);
+        ICU4XStaticDataProvider_destroy(dp.provider);
         ICU4XCodePointMapData16_destroy(result.data);
+        // */
         return true;
    }
 
