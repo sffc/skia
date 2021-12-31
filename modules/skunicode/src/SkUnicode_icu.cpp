@@ -274,12 +274,12 @@ class SkScriptIterator_icu : public SkScriptIterator {
         }
         uint16_t scriptCode = result.data.value().get(u);
         // */
-        auto dp = ICU4XStaticDataProvider_create_empty();
+        auto dp = ICU4XDataProvider_create_empty();
         if (!dp.success) {
             // TODO: Cleanup
             return false;
         }
-        auto result = ICU4XCodePointMapData16_try_get_script_from_static(dp.provider);
+        auto result = ICU4XCodePointMapData16_try_get_script(dp.provider);
         if (!result.success) {
             // TODO: Cleanup
             return false;
@@ -288,7 +288,7 @@ class SkScriptIterator_icu : public SkScriptIterator {
         if (script) {
             *script = (ScriptID)scriptCode;
         }
-        ICU4XStaticDataProvider_destroy(dp.provider);
+        ICU4XDataProvider_destroy(dp.provider);
         ICU4XCodePointMapData16_destroy(result.data);
         // */
         return true;
