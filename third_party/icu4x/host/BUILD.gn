@@ -20,46 +20,59 @@ group("icu_capi") {
   deps = [":icu_capi-v0_1_0"]
 }
 
-rust_library("atomic-polyfill-v0_1_2") {
+rust_library("atomic-polyfill-v0_1_5") {
   crate_name = "atomic_polyfill"
   crate_root = "//third_party/externals/icu4x/vendor/atomic-polyfill/src/lib.rs"
-  output_name = "atomic_polyfill-2ffdd3eb5a43516e"
+  output_name = "atomic_polyfill-5a06355d019af941"
   
   deps = []
-  deps += [":cortex-m-v0_7_3"]
+  deps += [":critical-section-v0_2_5"]
 
   rustenv = ["CARGO_PKG_NAME=atomic-polyfill","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/atomic-polyfill")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=2ffdd3eb5a43516e","-Cextra-filename=-2ffdd3eb5a43516e"]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=5a06355d019af941","-Cextra-filename=-5a06355d019af941"]
 
   
 }
 
 rust_library("bare-metal-v0_2_5") {
   crate_name = "bare_metal"
-  crate_root = "//third_party/externals/icu4x/vendor/bare-metal/src/lib.rs"
+  crate_root = "//third_party/externals/icu4x/vendor/bare-metal-0.2.5/src/lib.rs"
   output_name = "bare_metal-8ab47924ae2effe4"
   
   deps = []
 
-  rustenv = ["CARGO_PKG_NAME=bare-metal","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/bare-metal")+""]
+  rustenv = ["CARGO_PKG_NAME=bare-metal","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/bare-metal-0.2.5")+""]
 
   rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=8ab47924ae2effe4","-Cextra-filename=-8ab47924ae2effe4","--cfg=feature=\"const-fn\""]
 
   
 }
 
-rust_library("bincode-v1_3_3") {
-  crate_name = "bincode"
-  crate_root = "//third_party/externals/icu4x/vendor/bincode/src/lib.rs"
-  output_name = "bincode-2294ada8ceec0c61"
+rust_library("bare-metal-v1_0_0") {
+  crate_name = "bare_metal"
+  crate_root = "//third_party/externals/icu4x/vendor/bare-metal/src/lib.rs"
+  output_name = "bare_metal-b63cae3a686e1081"
   
   deps = []
-  deps += [":serde-v1_0_128"]
 
-  rustenv = ["CARGO_PKG_NAME=bincode","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/bincode")+""]
+  rustenv = ["CARGO_PKG_NAME=bare-metal","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/bare-metal")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=2294ada8ceec0c61","-Cextra-filename=-2294ada8ceec0c61"]
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=b63cae3a686e1081","-Cextra-filename=-b63cae3a686e1081"]
+
+  
+}
+
+rust_library("bit_field-v0_10_1") {
+  crate_name = "bit_field"
+  crate_root = "//third_party/externals/icu4x/vendor/bit_field/src/lib.rs"
+  output_name = "bit_field-d83ab973f10171a0"
+  
+  deps = []
+
+  rustenv = ["CARGO_PKG_NAME=bit_field","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/bit_field")+""]
+
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=d83ab973f10171a0","-Cextra-filename=-d83ab973f10171a0"]
 
   
 }
@@ -92,32 +105,32 @@ rust_library("byteorder-v1_4_3") {
   
 }
 
-rust_library("camino-v1_0_4") {
+rust_library("camino-v1_0_5") {
   crate_name = "camino"
   crate_root = "//third_party/externals/icu4x/vendor/camino/src/lib.rs"
-  output_name = "camino-5d6934a4f6620c65"
+  output_name = "camino-675a72b3a822c4c7"
   
   deps = []
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
 
   rustenv = ["CARGO_PKG_NAME=camino","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/camino")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=5d6934a4f6620c65","-Cextra-filename=-5d6934a4f6620c65","--cfg=feature=\"serde\"","--cfg=feature=\"serde1\"","--cfg=path_buf_capacity"]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=675a72b3a822c4c7","-Cextra-filename=-675a72b3a822c4c7","--cfg=feature=\"serde\"","--cfg=feature=\"serde1\"","--cfg=path_buf_capacity"]
 
   
 }
 
-rust_library("cargo-platform-v0_1_1") {
+rust_library("cargo-platform-v0_1_2") {
   crate_name = "cargo_platform"
   crate_root = "//third_party/externals/icu4x/vendor/cargo-platform/src/lib.rs"
-  output_name = "cargo_platform-bbc41efa61586263"
+  output_name = "cargo_platform-1a9bc2981dd0c628"
   
   deps = []
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
 
   rustenv = ["CARGO_PKG_NAME=cargo-platform","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/cargo-platform")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=bbc41efa61586263","-Cextra-filename=-bbc41efa61586263"]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=1a9bc2981dd0c628","-Cextra-filename=-1a9bc2981dd0c628"]
 
   
 }
@@ -128,12 +141,12 @@ rust_library("cargo_metadata-v0_13_1") {
   output_name = "cargo_metadata-80b16b98aebb2a03"
   
   deps = []
-  deps += [":camino-v1_0_4"]
-  deps += [":cargo-platform-v0_1_1"]
+  deps += [":camino-v1_0_5"]
+  deps += [":cargo-platform-v0_1_2"]
   deps += [":semver-v0_11_0"]
   deps += [":semver-parser-v0_10_2"]
-  deps += [":serde-v1_0_128"]
-  deps += [":serde_json-v1_0_64"]
+  deps += [":serde-v1_0_130"]
+  deps += [":serde_json-v1_0_69"]
 
   rustenv = ["CARGO_PKG_NAME=cargo_metadata","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/cargo_metadata")+""]
 
@@ -164,12 +177,52 @@ rust_library("cortex-m-v0_7_3") {
   deps = []
   deps += [":bare-metal-v0_2_5"]
   deps += [":bitfield-v0_13_2"]
-  deps += [":embedded-hal-v0_2_5"]
-  deps += [":volatile-register-v0_2_0"]
+  deps += [":embedded-hal-v0_2_6"]
+  deps += [":volatile-register-v0_2_1"]
 
   rustenv = ["CARGO_PKG_NAME=cortex-m","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/cortex-m")+""]
 
   rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=19a7529d565b2bf0","-Cextra-filename=-19a7529d565b2bf0"]
+
+  
+}
+
+rust_library("critical-section-v0_2_5") {
+  crate_name = "critical_section"
+  crate_root = "//third_party/externals/icu4x/vendor/critical-section/src/lib.rs"
+  output_name = "critical_section-87fb118acf4ca397"
+  
+  deps = []
+  deps += [":bare-metal-v1_0_0"]
+  deps += [":cfg-if-v1_0_0"]
+if (false) {
+  deps += [":riscv-v0_7_0"]
+}
+if ((false && false)) {
+  deps += [":cortex-m-v0_7_3"]
+}
+if ((false && false)) {
+  deps += [":cortex-m-v0_7_3"]
+}
+if ((false && false)) {
+  deps += [":cortex-m-v0_7_3"]
+}
+if ((false && false)) {
+  deps += [":cortex-m-v0_7_3"]
+}
+if ((false && false)) {
+  deps += [":cortex-m-v0_7_3"]
+}
+if ((false && false)) {
+  deps += [":cortex-m-v0_7_3"]
+}
+if ((false && false)) {
+  deps += [":cortex-m-v0_7_3"]
+}
+
+  rustenv = ["CARGO_PKG_NAME=critical-section","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/critical-section")+""]
+
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=87fb118acf4ca397","-Cextra-filename=-87fb118acf4ca397"]
 
   
 }
@@ -180,9 +233,9 @@ rust_proc_macro("derivative-v2_2_0") {
   output_name = "derivative-ecd51d3b9027d2b0"
   
   deps = []
-  deps += [":proc-macro2-v1_0_27"]
-  deps += [":quote-v1_0_9"]
-  deps += [":syn-v1_0_73"]
+  deps += [":proc-macro2-v1_0_32"]
+  deps += [":quote-v1_0_10"]
+  deps += [":syn-v1_0_81"]
 
   rustenv = ["CARGO_PKG_NAME=derivative","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/derivative")+""]
 
@@ -198,9 +251,9 @@ rust_proc_macro("diplomat-v0_2_0") {
   
   deps = []
   deps += [":diplomat_core-v0_2_0"]
-  deps += [":proc-macro2-v1_0_27"]
-  deps += [":quote-v1_0_9"]
-  deps += [":syn-v1_0_73"]
+  deps += [":proc-macro2-v1_0_32"]
+  deps += [":quote-v1_0_10"]
+  deps += [":syn-v1_0_81"]
 
   rustenv = ["CARGO_PKG_NAME=diplomat","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/diplomat")+""]
 
@@ -231,10 +284,10 @@ rust_library("diplomat_core-v0_2_0") {
   deps = []
   deps += [":impls-v1_0_3"]
   deps += [":lazy_static-v1_4_0"]
-  deps += [":proc-macro2-v1_0_27"]
-  deps += [":quote-v1_0_9"]
-  deps += [":serde-v1_0_128"]
-  deps += [":syn-v1_0_73"]
+  deps += [":proc-macro2-v1_0_32"]
+  deps += [":quote-v1_0_10"]
+  deps += [":serde-v1_0_130"]
+  deps += [":syn-v1_0_81"]
 
   rustenv = ["CARGO_PKG_NAME=diplomat_core","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/diplomat_core")+""]
 
@@ -249,9 +302,9 @@ rust_proc_macro("displaydoc-v0_2_3") {
   output_name = "displaydoc-4f6582ea1cadf70c"
   
   deps = []
-  deps += [":proc-macro2-v1_0_27"]
-  deps += [":quote-v1_0_9"]
-  deps += [":syn-v1_0_73"]
+  deps += [":proc-macro2-v1_0_32"]
+  deps += [":quote-v1_0_10"]
+  deps += [":syn-v1_0_81"]
 
   rustenv = ["CARGO_PKG_NAME=displaydoc","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/displaydoc")+""]
 
@@ -260,10 +313,10 @@ rust_proc_macro("displaydoc-v0_2_3") {
   
 }
 
-rust_library("embedded-hal-v0_2_5") {
+rust_library("embedded-hal-v0_2_6") {
   crate_name = "embedded_hal"
   crate_root = "//third_party/externals/icu4x/vendor/embedded-hal/src/lib.rs"
-  output_name = "embedded_hal-5981662a94195069"
+  output_name = "embedded_hal-c16612a98e8e5ef6"
   
   deps = []
   deps += [":nb-v0_1_3"]
@@ -271,22 +324,22 @@ rust_library("embedded-hal-v0_2_5") {
 
   rustenv = ["CARGO_PKG_NAME=embedded-hal","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/embedded-hal")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=5981662a94195069","-Cextra-filename=-5981662a94195069"]
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=c16612a98e8e5ef6","-Cextra-filename=-c16612a98e8e5ef6"]
 
   
 }
 
-rust_library("erased-serde-v0_3_13") {
+rust_library("erased-serde-v0_3_16") {
   crate_name = "erased_serde"
   crate_root = "//third_party/externals/icu4x/vendor/erased-serde/src/lib.rs"
-  output_name = "erased_serde-5684c655c4dffce9"
+  output_name = "erased_serde-3d2e4b980bd8a417"
   
   deps = []
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
 
   rustenv = ["CARGO_PKG_NAME=erased-serde","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/erased-serde")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=5684c655c4dffce9","-Cextra-filename=-5684c655c4dffce9","--cfg=feature=\"alloc\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=3d2e4b980bd8a417","-Cextra-filename=-3d2e4b980bd8a417","--cfg=feature=\"alloc\""]
 
   
 }
@@ -298,7 +351,7 @@ rust_library("fixed_decimal-v0_2_1") {
   
   deps = []
   deps += [":displaydoc-v0_2_3($host_toolchain)"]
-  deps += [":smallvec-v1_6_1"]
+  deps += [":smallvec-v1_7_0"]
   deps += [":static_assertions-v1_1_0"]
   deps += [":writeable-v0_2_1"]
 
@@ -324,22 +377,25 @@ rust_library("hash32-v0_2_1") {
   
 }
 
-rust_library("heapless-v0_7_3") {
+rust_library("heapless-v0_7_7") {
   crate_name = "heapless"
   crate_root = "//third_party/externals/icu4x/vendor/heapless/src/lib.rs"
-  output_name = "heapless-96a7ba83d9627f0c"
+  output_name = "heapless-7d783b8567c1178a"
   
   deps = []
   deps += [":hash32-v0_2_1"]
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
   deps += [":stable_deref_trait-v1_2_0"]
+if (current_cpu == "x64") {
+  deps += [":spin-v0_9_2"]
+}
 if ((false && false)) {
-  deps += [":atomic-polyfill-v0_1_2"]
+  deps += [":atomic-polyfill-v0_1_5"]
 }
 
   rustenv = ["CARGO_PKG_NAME=heapless","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/heapless")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=96a7ba83d9627f0c","-Cextra-filename=-96a7ba83d9627f0c","--cfg=feature=\"cas\"","--cfg=feature=\"default\"","--cfg=feature=\"serde\"","--cfg=has_cas","--cfg=has_atomics"]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=7d783b8567c1178a","-Cextra-filename=-7d783b8567c1178a","--cfg=feature=\"atomic-polyfill\"","--cfg=feature=\"cas\"","--cfg=feature=\"default\"","--cfg=feature=\"serde\"","--cfg=has_cas","--cfg=has_atomics"]
 
   
 }
@@ -362,7 +418,7 @@ static_library("icu_capi-v0_1_0") {
   deps += [":icu_provider-v0_4_0"]
   deps += [":icu_provider_blob-v0_4_0"]
   deps += [":icu_testdata-v0_4_0"]
-  deps += [":tinystr-v0_4_10"]
+  deps += [":tinystr-v0_4_11"]
   deps += [":writeable-v0_2_1"]
 if (current_cpu == "wasm") {
   deps += [":log-v0_4_14"]
@@ -382,9 +438,9 @@ rust_library("icu_codepointtrie-v0_3_0") {
   
   deps = []
   deps += [":displaydoc-v0_2_3($host_toolchain)"]
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
   deps += [":yoke-v0_3_1"]
-  deps += [":zerovec-v0_4_1"]
+  deps += [":zerovec-v0_5_0"]
 
   rustenv = ["CARGO_PKG_NAME=icu_codepointtrie","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/utils/codepointtrie")+""]
 
@@ -403,7 +459,7 @@ rust_library("icu_decimal-v0_4_0") {
   deps += [":fixed_decimal-v0_2_1"]
   deps += [":icu_locid-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
   deps += [":writeable-v0_2_1"]
 
   rustenv = ["CARGO_PKG_NAME=icu_decimal","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/components/decimal")+""]
@@ -421,8 +477,9 @@ rust_library("icu_locale_canonicalizer-v0_4_0") {
   deps = []
   deps += [":icu_locid-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
-  deps += [":serde-v1_0_128"]
-  deps += [":tinystr-v0_4_10"]
+  deps += [":litemap-v0_2_2"]
+  deps += [":serde-v1_0_130"]
+  deps += [":tinystr-v0_4_11"]
 
   rustenv = ["CARGO_PKG_NAME=icu_locale_canonicalizer","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/components/locale_canonicalizer")+""]
 
@@ -438,8 +495,8 @@ rust_library("icu_locid-v0_4_0") {
   
   deps = []
   deps += [":displaydoc-v0_2_3($host_toolchain)"]
-  deps += [":serde-v1_0_128"]
-  deps += [":tinystr-v0_4_10"]
+  deps += [":serde-v1_0_130"]
+  deps += [":tinystr-v0_4_11"]
   deps += [":writeable-v0_2_1"]
 
   rustenv = ["CARGO_PKG_NAME=icu_locid","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/components/locid")+""]
@@ -456,8 +513,8 @@ rust_proc_macro("icu_locid_macros-v0_4_0") {
   
   deps = []
   deps += [":icu_locid-v0_4_0"]
-  deps += [":proc-macro-crate-v1_0_0"]
-  deps += [":tinystr-v0_4_10"]
+  deps += [":proc-macro-crate-v1_1_0"]
+  deps += [":tinystr-v0_4_11"]
 
   rustenv = ["CARGO_PKG_NAME=icu_locid_macros","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/components/locid/macros")+""]
 
@@ -477,8 +534,8 @@ rust_library("icu_plurals-v0_4_0") {
   deps += [":icu_locid-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
   deps += [":num_enum-v0_5_4"]
-  deps += [":serde-v1_0_128"]
-  deps += [":zerovec-v0_4_1"]
+  deps += [":serde-v1_0_130"]
+  deps += [":zerovec-v0_5_0"]
 
   rustenv = ["CARGO_PKG_NAME=icu_plurals","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/components/plurals")+""]
 
@@ -498,8 +555,8 @@ rust_library("icu_properties-v0_4_0") {
   deps += [":icu_provider-v0_4_0"]
   deps += [":icu_uniset-v0_4_0"]
   deps += [":num_enum-v0_5_4"]
-  deps += [":serde-v1_0_128"]
-  deps += [":zerovec-v0_4_1"]
+  deps += [":serde-v1_0_130"]
+  deps += [":zerovec-v0_5_0"]
 
   rustenv = ["CARGO_PKG_NAME=icu_properties","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/components/properties")+""]
 
@@ -515,18 +572,21 @@ rust_library("icu_provider-v0_4_0") {
   
   deps = []
   deps += [":displaydoc-v0_2_3($host_toolchain)"]
-  deps += [":erased-serde-v0_3_13"]
+  deps += [":erased-serde-v0_3_16"]
   deps += [":icu_locid-v0_4_0"]
   deps += [":icu_provider_macros-v0_4_0($host_toolchain)"]
   deps += [":litemap-v0_2_2"]
-  deps += [":serde-v1_0_128"]
-  deps += [":tinystr-v0_4_10"]
+  deps += [":log-v0_4_14"]
+  deps += [":postcard-v0_7_2"]
+  deps += [":serde-v1_0_130"]
+  deps += [":serde_json-v1_0_69"]
+  deps += [":tinystr-v0_4_11"]
   deps += [":writeable-v0_2_1"]
   deps += [":yoke-v0_3_1"]
 
   rustenv = ["CARGO_PKG_NAME=icu_provider","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/provider/core")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=cdc70e1d5bd67115","-Cextra-filename=-cdc70e1d5bd67115","--cfg=feature=\"erased-serde\"","--cfg=feature=\"icu_provider_macros\"","--cfg=feature=\"macros\"","--cfg=feature=\"provider_serde\"","--cfg=feature=\"serde\"","--cfg=feature=\"std\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=cdc70e1d5bd67115","-Cextra-filename=-cdc70e1d5bd67115","--cfg=feature=\"deserialize_json\"","--cfg=feature=\"deserialize_postcard_07\"","--cfg=feature=\"erased-serde\"","--cfg=feature=\"icu_provider_macros\"","--cfg=feature=\"log\"","--cfg=feature=\"log_error_context\"","--cfg=feature=\"macros\"","--cfg=feature=\"postcard\"","--cfg=feature=\"serde\"","--cfg=feature=\"serde_json\"","--cfg=feature=\"serialize\"","--cfg=feature=\"std\""]
 
   
 }
@@ -537,43 +597,20 @@ rust_library("icu_provider_blob-v0_4_0") {
   output_name = "icu_provider_blob-c34ddc139df980fc"
   
   deps = []
-  deps += [":erased-serde-v0_3_13"]
+  deps += [":erased-serde-v0_3_16"]
   deps += [":icu_locid-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
   deps += [":litemap-v0_2_2"]
   deps += [":log-v0_4_14"]
   deps += [":postcard-v0_7_2"]
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
   deps += [":writeable-v0_2_1"]
   deps += [":yoke-v0_3_1"]
+  deps += [":zerovec-v0_5_0"]
 
   rustenv = ["CARGO_PKG_NAME=icu_provider_blob","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/provider/blob")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=c34ddc139df980fc","-Cextra-filename=-c34ddc139df980fc","--cfg=feature=\"export\"","--cfg=feature=\"log\"","--cfg=feature=\"std\""]
-
-  
-}
-
-rust_library("icu_provider_fs-v0_4_0") {
-  crate_name = "icu_provider_fs"
-  crate_root = "//third_party/externals/icu4x/provider/fs/src/lib.rs"
-  output_name = "icu_provider_fs-917a431aa4d7c119"
-  
-  deps = []
-  deps += [":bincode-v1_3_3"]
-  deps += [":displaydoc-v0_2_3($host_toolchain)"]
-  deps += [":erased-serde-v0_3_13"]
-  deps += [":icu_locid-v0_4_0"]
-  deps += [":icu_provider-v0_4_0"]
-  deps += [":log-v0_4_14"]
-  deps += [":serde-v1_0_128"]
-  deps += [":serde-json-core-v0_4_0"]
-  deps += [":serde_json-v1_0_64"]
-  deps += [":static_assertions-v1_1_0"]
-
-  rustenv = ["CARGO_PKG_NAME=icu_provider_fs","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/provider/fs")+""]
-
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=917a431aa4d7c119","-Cextra-filename=-917a431aa4d7c119","--cfg=feature=\"bincode\"","--cfg=feature=\"export\"","--cfg=feature=\"log\"","--cfg=feature=\"provider_bincode\"","--cfg=feature=\"provider_json\"","--cfg=feature=\"serde_json\"","--cfg=feature=\"static_assertions\"","--cfg=feature=\"std\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=c34ddc139df980fc","-Cextra-filename=-c34ddc139df980fc","--cfg=feature=\"export\"","--cfg=feature=\"litemap\"","--cfg=feature=\"log\"","--cfg=feature=\"std\""]
 
   
 }
@@ -584,9 +621,9 @@ rust_proc_macro("icu_provider_macros-v0_4_0") {
   output_name = "icu_provider_macros-c319d5377346c96"
   
   deps = []
-  deps += [":proc-macro2-v1_0_27"]
-  deps += [":quote-v1_0_9"]
-  deps += [":syn-v1_0_73"]
+  deps += [":proc-macro2-v1_0_32"]
+  deps += [":quote-v1_0_10"]
+  deps += [":syn-v1_0_81"]
 
   rustenv = ["CARGO_PKG_NAME=icu_provider_macros","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/provider/macros")+""]
 
@@ -606,16 +643,13 @@ rust_library("icu_testdata-v0_4_0") {
   deps += [":icu_locid-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
   deps += [":icu_provider_blob-v0_4_0"]
-  deps += [":serde-v1_0_128"]
-  deps += [":serde_json-v1_0_64"]
+  deps += [":serde-v1_0_130"]
+  deps += [":serde_json-v1_0_69"]
   deps += [":writeable-v0_2_1"]
-if (!((current_cpu == "wasm" || false))) {
-  deps += [":icu_provider_fs-v0_4_0"]
-}
 
   rustenv = ["CARGO_PKG_NAME=icu_testdata","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/provider/testdata")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=950fe84e3f8329ed","-Cextra-filename=-950fe84e3f8329ed","--cfg=feature=\"cargo_metadata\"","--cfg=feature=\"default\"","--cfg=feature=\"displaydoc\"","--cfg=feature=\"icu_provider_blob\"","--cfg=feature=\"icu_provider_fs\"","--cfg=feature=\"metadata\"","--cfg=feature=\"serde\"","--cfg=feature=\"serde_json\"","--cfg=feature=\"static\"","--cfg=feature=\"std\"","--cfg=feature=\"writeable\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=950fe84e3f8329ed","-Cextra-filename=-950fe84e3f8329ed","--cfg=feature=\"cargo_metadata\"","--cfg=feature=\"default\"","--cfg=feature=\"displaydoc\"","--cfg=feature=\"icu_provider_blob\"","--cfg=feature=\"metadata\"","--cfg=feature=\"serde\"","--cfg=feature=\"serde_json\"","--cfg=feature=\"static\"","--cfg=feature=\"std\"","--cfg=feature=\"writeable\""]
 
   
 }
@@ -628,10 +662,10 @@ rust_library("icu_uniset-v0_4_0") {
   deps = []
   deps += [":displaydoc-v0_2_3($host_toolchain)"]
   deps += [":litemap-v0_2_2"]
-  deps += [":serde-v1_0_128"]
-  deps += [":tinystr-v0_4_10"]
+  deps += [":serde-v1_0_130"]
+  deps += [":tinystr-v0_4_11"]
   deps += [":yoke-v0_3_1"]
-  deps += [":zerovec-v0_4_1"]
+  deps += [":zerovec-v0_5_0"]
 
   rustenv = ["CARGO_PKG_NAME=icu_uniset","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/utils/uniset")+""]
 
@@ -654,16 +688,16 @@ rust_library("impls-v1_0_3") {
   
 }
 
-rust_library("itoa-v0_4_7") {
+rust_library("itoa-v0_4_8") {
   crate_name = "itoa"
   crate_root = "//third_party/externals/icu4x/vendor/itoa/src/lib.rs"
-  output_name = "itoa-ad854aa0ac00d40f"
+  output_name = "itoa-9e27afdde10ba0b5"
   
   deps = []
 
   rustenv = ["CARGO_PKG_NAME=itoa","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/itoa")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=ad854aa0ac00d40f","-Cextra-filename=-ad854aa0ac00d40f","--cfg=feature=\"default\"","--cfg=feature=\"std\""]
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=9e27afdde10ba0b5","-Cextra-filename=-9e27afdde10ba0b5","--cfg=feature=\"default\"","--cfg=feature=\"std\""]
 
   
 }
@@ -688,11 +722,27 @@ rust_library("litemap-v0_2_2") {
   output_name = "litemap-d92a28e1b53764d4"
   
   deps = []
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
+  deps += [":serde_json-v1_0_69"]
 
   rustenv = ["CARGO_PKG_NAME=litemap","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/utils/litemap")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=d92a28e1b53764d4","-Cextra-filename=-d92a28e1b53764d4","--cfg=feature=\"serde\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=d92a28e1b53764d4","-Cextra-filename=-d92a28e1b53764d4","--cfg=feature=\"serde\"","--cfg=feature=\"serde_json\"","--cfg=feature=\"serde_serialize\""]
+
+  
+}
+
+rust_library("lock_api-v0_4_5") {
+  crate_name = "lock_api"
+  crate_root = "//third_party/externals/icu4x/vendor/lock_api/src/lib.rs"
+  output_name = "lock_api-524248deebb5e3ad"
+  
+  deps = []
+  deps += [":scopeguard-v1_1_0"]
+
+  rustenv = ["CARGO_PKG_NAME=lock_api","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/lock_api")+""]
+
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=524248deebb5e3ad","-Cextra-filename=-524248deebb5e3ad"]
 
   
 }
@@ -763,9 +813,9 @@ rust_proc_macro("num_enum_derive-v0_5_4") {
   output_name = "num_enum_derive-71effff39250cace"
   
   deps = []
-  deps += [":proc-macro2-v1_0_27"]
-  deps += [":quote-v1_0_9"]
-  deps += [":syn-v1_0_73"]
+  deps += [":proc-macro2-v1_0_32"]
+  deps += [":quote-v1_0_10"]
+  deps += [":syn-v1_0_81"]
 
   rustenv = ["CARGO_PKG_NAME=num_enum_derive","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/num_enum_derive")+""]
 
@@ -795,9 +845,9 @@ rust_library("postcard-v0_7_2") {
   output_name = "postcard-653ca6de500ce15e"
   
   deps = []
-  deps += [":heapless-v0_7_3"]
+  deps += [":heapless-v0_7_7"]
   deps += [":postcard-cobs-v0_1_5-pre"]
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
 
   rustenv = ["CARGO_PKG_NAME=postcard","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/postcard")+""]
 
@@ -820,48 +870,64 @@ rust_library("postcard-cobs-v0_1_5-pre") {
   
 }
 
-rust_library("proc-macro-crate-v1_0_0") {
+rust_library("proc-macro-crate-v1_1_0") {
   crate_name = "proc_macro_crate"
   crate_root = "//third_party/externals/icu4x/vendor/proc-macro-crate/src/lib.rs"
-  output_name = "proc_macro_crate-e236eb12c4e54d55"
+  output_name = "proc_macro_crate-2e6bed61562c3ce8"
   
   deps = []
-  deps += [":thiserror-v1_0_24"]
+  deps += [":thiserror-v1_0_30"]
   deps += [":toml-v0_5_8"]
 
   rustenv = ["CARGO_PKG_NAME=proc-macro-crate","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/proc-macro-crate")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=e236eb12c4e54d55","-Cextra-filename=-e236eb12c4e54d55"]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=2e6bed61562c3ce8","-Cextra-filename=-2e6bed61562c3ce8"]
 
   
 }
 
-rust_library("proc-macro2-v1_0_27") {
+rust_library("proc-macro2-v1_0_32") {
   crate_name = "proc_macro2"
   crate_root = "//third_party/externals/icu4x/vendor/proc-macro2/src/lib.rs"
-  output_name = "proc_macro2-73b73a4dc8101434"
+  output_name = "proc_macro2-500c6656c67ae30b"
   
   deps = []
-  deps += [":unicode-xid-v0_2_1"]
+  deps += [":unicode-xid-v0_2_2"]
 
   rustenv = ["CARGO_PKG_NAME=proc-macro2","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/proc-macro2")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=73b73a4dc8101434","-Cextra-filename=-73b73a4dc8101434","--cfg=feature=\"default\"","--cfg=feature=\"proc-macro\"","--cfg=lexerror_display","--cfg=hygiene","--cfg=use_proc_macro","--cfg=wrap_proc_macro"]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=500c6656c67ae30b","-Cextra-filename=-500c6656c67ae30b","--cfg=feature=\"default\"","--cfg=feature=\"proc-macro\"","--cfg=lexerror_display","--cfg=hygiene","--cfg=literal_from_str","--cfg=use_proc_macro","--cfg=wrap_proc_macro"]
 
   
 }
 
-rust_library("quote-v1_0_9") {
+rust_library("quote-v1_0_10") {
   crate_name = "quote"
   crate_root = "//third_party/externals/icu4x/vendor/quote/src/lib.rs"
-  output_name = "quote-c7b6770703d9e30c"
+  output_name = "quote-fc9ea680aa36fd59"
   
   deps = []
-  deps += [":proc-macro2-v1_0_27"]
+  deps += [":proc-macro2-v1_0_32"]
 
   rustenv = ["CARGO_PKG_NAME=quote","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/quote")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=c7b6770703d9e30c","-Cextra-filename=-c7b6770703d9e30c","--cfg=feature=\"default\"","--cfg=feature=\"proc-macro\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=fc9ea680aa36fd59","-Cextra-filename=-fc9ea680aa36fd59","--cfg=feature=\"default\"","--cfg=feature=\"proc-macro\""]
+
+  
+}
+
+rust_library("riscv-v0_7_0") {
+  crate_name = "riscv"
+  crate_root = "//third_party/externals/icu4x/vendor/riscv/src/lib.rs"
+  output_name = "riscv-7801aedadab90a30"
+  
+  deps = []
+  deps += [":bare-metal-v1_0_0"]
+  deps += [":bit_field-v0_10_1"]
+
+  rustenv = ["CARGO_PKG_NAME=riscv","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/riscv")+""]
+
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=7801aedadab90a30","-Cextra-filename=-7801aedadab90a30"]
 
   
 }
@@ -880,16 +946,30 @@ rust_library("ryu-v1_0_5") {
   
 }
 
+rust_library("scopeguard-v1_1_0") {
+  crate_name = "scopeguard"
+  crate_root = "//third_party/externals/icu4x/vendor/scopeguard/src/lib.rs"
+  output_name = "scopeguard-6ef302a7f864fbb3"
+  
+  deps = []
+
+  rustenv = ["CARGO_PKG_NAME=scopeguard","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/scopeguard")+""]
+
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=6ef302a7f864fbb3","-Cextra-filename=-6ef302a7f864fbb3"]
+
+  
+}
+
 rust_library("semver-v0_11_0") {
   crate_name = "semver"
-  crate_root = "//third_party/externals/icu4x/vendor/semver/src/lib.rs"
+  crate_root = "//third_party/externals/icu4x/vendor/semver-0.11.0/src/lib.rs"
   output_name = "semver-fff3f0bdcc3cdb6c"
   
   deps = []
   deps += [":semver-parser-v0_10_2"]
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
 
-  rustenv = ["CARGO_PKG_NAME=semver","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/semver")+""]
+  rustenv = ["CARGO_PKG_NAME=semver","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/semver-0.11.0")+""]
 
   rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=fff3f0bdcc3cdb6c","-Cextra-filename=-fff3f0bdcc3cdb6c","--cfg=feature=\"default\"","--cfg=feature=\"serde\""]
 
@@ -911,85 +991,83 @@ rust_library("semver-parser-v0_10_2") {
   
 }
 
-rust_library("serde-v1_0_128") {
+rust_library("serde-v1_0_130") {
   crate_name = "serde"
   crate_root = "//third_party/externals/icu4x/vendor/serde/src/lib.rs"
-  output_name = "serde-de2db11aea0311b7"
+  output_name = "serde-32110ae57a570352"
   
   deps = []
-  deps += [":serde_derive-v1_0_128($host_toolchain)"]
+  deps += [":serde_derive-v1_0_130($host_toolchain)"]
 
   rustenv = ["CARGO_PKG_NAME=serde","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/serde")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=de2db11aea0311b7","-Cextra-filename=-de2db11aea0311b7","--cfg=feature=\"alloc\"","--cfg=feature=\"default\"","--cfg=feature=\"derive\"","--cfg=feature=\"serde_derive\"","--cfg=feature=\"std\"","--cfg=ops_bound","--cfg=core_reverse","--cfg=de_boxed_c_str","--cfg=de_boxed_path","--cfg=de_rc_dst","--cfg=core_duration","--cfg=integer128","--cfg=range_inclusive","--cfg=num_nonzero","--cfg=serde_derive","--cfg=core_try_from","--cfg=num_nonzero_signed","--cfg=systemtime_checked_add","--cfg=std_atomic64","--cfg=std_atomic"]
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=32110ae57a570352","-Cextra-filename=-32110ae57a570352","--cfg=feature=\"alloc\"","--cfg=feature=\"default\"","--cfg=feature=\"derive\"","--cfg=feature=\"serde_derive\"","--cfg=feature=\"std\"","--cfg=ops_bound","--cfg=core_reverse","--cfg=de_boxed_c_str","--cfg=de_boxed_path","--cfg=de_rc_dst","--cfg=core_duration","--cfg=integer128","--cfg=range_inclusive","--cfg=iterator_try_fold","--cfg=num_nonzero","--cfg=serde_derive","--cfg=core_try_from","--cfg=num_nonzero_signed","--cfg=systemtime_checked_add","--cfg=std_atomic64","--cfg=std_atomic"]
 
   
 }
 
-rust_library("serde-json-core-v0_4_0") {
-  crate_name = "serde_json_core"
-  crate_root = "//third_party/externals/icu4x/vendor/serde-json-core/src/lib.rs"
-  output_name = "serde_json_core-ab88889f0e8b698"
-  
-  deps = []
-  deps += [":heapless-v0_7_3"]
-  deps += [":ryu-v1_0_5"]
-  deps += [":serde-v1_0_128"]
-
-  rustenv = ["CARGO_PKG_NAME=serde-json-core","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/serde-json-core")+""]
-
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=ab88889f0e8b698","-Cextra-filename=-ab88889f0e8b698","--cfg=feature=\"default\"","--cfg=feature=\"heapless\"","--cfg=feature=\"std\""]
-
-  
-}
-
-rust_proc_macro("serde_derive-v1_0_128") {
+rust_proc_macro("serde_derive-v1_0_130") {
   crate_name = "serde_derive"
   crate_root = "//third_party/externals/icu4x/vendor/serde_derive/src/lib.rs"
-  output_name = "serde_derive-162033d3958fe33b"
+  output_name = "serde_derive-5bc22b12b0b152da"
   
   deps = []
-  deps += [":proc-macro2-v1_0_27"]
-  deps += [":quote-v1_0_9"]
-  deps += [":syn-v1_0_73"]
+  deps += [":proc-macro2-v1_0_32"]
+  deps += [":quote-v1_0_10"]
+  deps += [":syn-v1_0_81"]
 
   rustenv = ["CARGO_PKG_NAME=serde_derive","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/serde_derive")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=162033d3958fe33b","-Cextra-filename=-162033d3958fe33b","--cfg=feature=\"default\"","--cfg=underscore_consts"]
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=5bc22b12b0b152da","-Cextra-filename=-5bc22b12b0b152da","--cfg=feature=\"default\"","--cfg=underscore_consts","--cfg=ptr_addr_of"]
 
   
 }
 
-rust_library("serde_json-v1_0_64") {
+rust_library("serde_json-v1_0_69") {
   crate_name = "serde_json"
   crate_root = "//third_party/externals/icu4x/vendor/serde_json/src/lib.rs"
-  output_name = "serde_json-b7d6e78e6297d35c"
+  output_name = "serde_json-3a9f5b638834f68f"
   
   deps = []
-  deps += [":itoa-v0_4_7"]
+  deps += [":itoa-v0_4_8"]
   deps += [":ryu-v1_0_5"]
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
 
   rustenv = ["CARGO_PKG_NAME=serde_json","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/serde_json")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=b7d6e78e6297d35c","-Cextra-filename=-b7d6e78e6297d35c","--cfg=feature=\"alloc\"","--cfg=feature=\"default\"","--cfg=feature=\"std\"","--cfg=feature=\"unbounded_depth\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=3a9f5b638834f68f","-Cextra-filename=-3a9f5b638834f68f","--cfg=feature=\"alloc\"","--cfg=feature=\"default\"","--cfg=feature=\"std\"","--cfg=feature=\"unbounded_depth\""]
 
   
 }
 
-rust_library("smallvec-v1_6_1") {
+rust_library("smallvec-v1_7_0") {
   crate_name = "smallvec"
   crate_root = "//third_party/externals/icu4x/vendor/smallvec/src/lib.rs"
-  output_name = "smallvec-129929172b61f7b"
+  output_name = "smallvec-111d2b910f136a3f"
   
   deps = []
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
 
   rustenv = ["CARGO_PKG_NAME=smallvec","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/smallvec")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=129929172b61f7b","-Cextra-filename=-129929172b61f7b","--cfg=feature=\"serde\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=111d2b910f136a3f","-Cextra-filename=-111d2b910f136a3f","--cfg=feature=\"serde\""]
 
   
+}
+
+rust_library("spin-v0_9_2") {
+  crate_name = "spin"
+  crate_root = "//third_party/externals/icu4x/vendor/spin/src/lib.rs"
+  output_name = "spin-3aa298aec995fb8f"
+  
+  deps = []
+  deps += [":lock_api-v0_4_5"]
+
+  rustenv = ["CARGO_PKG_NAME=spin","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/spin")+""]
+
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=3aa298aec995fb8f","-Cextra-filename=-3aa298aec995fb8f","--cfg=feature=\"barrier\"","--cfg=feature=\"default\"","--cfg=feature=\"lazy\"","--cfg=feature=\"lock_api\"","--cfg=feature=\"lock_api_crate\"","--cfg=feature=\"mutex\"","--cfg=feature=\"once\"","--cfg=feature=\"rwlock\"","--cfg=feature=\"spin_mutex\""]
+
+  aliased_deps = {lock_api_crate = ":lock_api-v0_4_5" }
 }
 
 rust_library("stable_deref_trait-v1_2_0") {
@@ -1020,86 +1098,86 @@ rust_library("static_assertions-v1_1_0") {
   
 }
 
-rust_library("syn-v1_0_73") {
+rust_library("syn-v1_0_81") {
   crate_name = "syn"
   crate_root = "//third_party/externals/icu4x/vendor/syn/src/lib.rs"
-  output_name = "syn-7627254121047282"
+  output_name = "syn-2ed584d7bd61108"
   
   deps = []
-  deps += [":proc-macro2-v1_0_27"]
-  deps += [":quote-v1_0_9"]
-  deps += [":unicode-xid-v0_2_1"]
+  deps += [":proc-macro2-v1_0_32"]
+  deps += [":quote-v1_0_10"]
+  deps += [":unicode-xid-v0_2_2"]
 
   rustenv = ["CARGO_PKG_NAME=syn","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/syn")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=7627254121047282","-Cextra-filename=-7627254121047282","--cfg=feature=\"clone-impls\"","--cfg=feature=\"default\"","--cfg=feature=\"derive\"","--cfg=feature=\"extra-traits\"","--cfg=feature=\"fold\"","--cfg=feature=\"full\"","--cfg=feature=\"parsing\"","--cfg=feature=\"printing\"","--cfg=feature=\"proc-macro\"","--cfg=feature=\"quote\"","--cfg=feature=\"visit\"","--cfg=feature=\"visit-mut\"","--cfg=syn_disable_nightly_tests"]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=2ed584d7bd61108","-Cextra-filename=-2ed584d7bd61108","--cfg=feature=\"clone-impls\"","--cfg=feature=\"default\"","--cfg=feature=\"derive\"","--cfg=feature=\"extra-traits\"","--cfg=feature=\"fold\"","--cfg=feature=\"full\"","--cfg=feature=\"parsing\"","--cfg=feature=\"printing\"","--cfg=feature=\"proc-macro\"","--cfg=feature=\"quote\"","--cfg=feature=\"visit\"","--cfg=syn_disable_nightly_tests"]
 
   
 }
 
-rust_library("synstructure-v0_12_4") {
+rust_library("synstructure-v0_12_6") {
   crate_name = "synstructure"
   crate_root = "//third_party/externals/icu4x/vendor/synstructure/src/lib.rs"
-  output_name = "synstructure-6e2e94d8cb0ec4a5"
+  output_name = "synstructure-b30be16cba2970c4"
   
   deps = []
-  deps += [":proc-macro2-v1_0_27"]
-  deps += [":quote-v1_0_9"]
-  deps += [":syn-v1_0_73"]
-  deps += [":unicode-xid-v0_2_1"]
+  deps += [":proc-macro2-v1_0_32"]
+  deps += [":quote-v1_0_10"]
+  deps += [":syn-v1_0_81"]
+  deps += [":unicode-xid-v0_2_2"]
 
   rustenv = ["CARGO_PKG_NAME=synstructure","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/synstructure")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=6e2e94d8cb0ec4a5","-Cextra-filename=-6e2e94d8cb0ec4a5","--cfg=feature=\"default\"","--cfg=feature=\"proc-macro\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=b30be16cba2970c4","-Cextra-filename=-b30be16cba2970c4","--cfg=feature=\"default\"","--cfg=feature=\"proc-macro\""]
 
   
 }
 
-rust_library("thiserror-v1_0_24") {
+rust_library("thiserror-v1_0_30") {
   crate_name = "thiserror"
   crate_root = "//third_party/externals/icu4x/vendor/thiserror/src/lib.rs"
-  output_name = "thiserror-b6923b5376cf20d1"
+  output_name = "thiserror-48aa0a1eeabec9a3"
   
   deps = []
-  deps += [":thiserror-impl-v1_0_24($host_toolchain)"]
+  deps += [":thiserror-impl-v1_0_30($host_toolchain)"]
 
   rustenv = ["CARGO_PKG_NAME=thiserror","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/thiserror")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=b6923b5376cf20d1","-Cextra-filename=-b6923b5376cf20d1"]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=48aa0a1eeabec9a3","-Cextra-filename=-48aa0a1eeabec9a3"]
 
   
 }
 
-rust_proc_macro("thiserror-impl-v1_0_24") {
+rust_proc_macro("thiserror-impl-v1_0_30") {
   crate_name = "thiserror_impl"
   crate_root = "//third_party/externals/icu4x/vendor/thiserror-impl/src/lib.rs"
-  output_name = "thiserror_impl-b15deb04c5c9ec4c"
+  output_name = "thiserror_impl-35cad2123a367414"
   
   deps = []
-  deps += [":proc-macro2-v1_0_27"]
-  deps += [":quote-v1_0_9"]
-  deps += [":syn-v1_0_73"]
+  deps += [":proc-macro2-v1_0_32"]
+  deps += [":quote-v1_0_10"]
+  deps += [":syn-v1_0_81"]
 
   rustenv = ["CARGO_PKG_NAME=thiserror-impl","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/thiserror-impl")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=b15deb04c5c9ec4c","-Cextra-filename=-b15deb04c5c9ec4c"]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=35cad2123a367414","-Cextra-filename=-35cad2123a367414"]
 
   
 }
 
-rust_library("tinystr-v0_4_10") {
+rust_library("tinystr-v0_4_11") {
   crate_name = "tinystr"
   crate_root = "//third_party/externals/icu4x/vendor/tinystr/src/lib.rs"
-  output_name = "tinystr-c248fcbaea9537e5"
+  output_name = "tinystr-cbf26163efc8015c"
   
   deps = []
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
   deps += [":tinystr-macros-v0_2_0($host_toolchain)"]
   deps += [":tinystr-raw-v0_1_3"]
 
   rustenv = ["CARGO_PKG_NAME=tinystr","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/tinystr")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=c248fcbaea9537e5","-Cextra-filename=-c248fcbaea9537e5","--cfg=feature=\"alloc\"","--cfg=feature=\"default\"","--cfg=feature=\"serde\"","--cfg=feature=\"std\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=cbf26163efc8015c","-Cextra-filename=-cbf26163efc8015c","--cfg=feature=\"alloc\"","--cfg=feature=\"default\"","--cfg=feature=\"serde\"","--cfg=feature=\"std\""]
 
   
 }
@@ -1139,7 +1217,7 @@ rust_library("toml-v0_5_8") {
   output_name = "toml-4334c6dea0ee358c"
   
   deps = []
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
 
   rustenv = ["CARGO_PKG_NAME=toml","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/toml")+""]
 
@@ -1162,16 +1240,16 @@ rust_library("ucd-trie-v0_1_3") {
   
 }
 
-rust_library("unicode-xid-v0_2_1") {
+rust_library("unicode-xid-v0_2_2") {
   crate_name = "unicode_xid"
   crate_root = "//third_party/externals/icu4x/vendor/unicode-xid/src/lib.rs"
-  output_name = "unicode_xid-31b6f599c9c45a45"
+  output_name = "unicode_xid-fa54215a5411e7e5"
   
   deps = []
 
   rustenv = ["CARGO_PKG_NAME=unicode-xid","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/unicode-xid")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=31b6f599c9c45a45","-Cextra-filename=-31b6f599c9c45a45","--cfg=feature=\"default\""]
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=fa54215a5411e7e5","-Cextra-filename=-fa54215a5411e7e5","--cfg=feature=\"default\""]
 
   
 }
@@ -1204,17 +1282,17 @@ rust_library("void-v1_0_2") {
   
 }
 
-rust_library("volatile-register-v0_2_0") {
+rust_library("volatile-register-v0_2_1") {
   crate_name = "volatile_register"
   crate_root = "//third_party/externals/icu4x/vendor/volatile-register/src/lib.rs"
-  output_name = "volatile_register-ecc84c751d686054"
+  output_name = "volatile_register-9f1eec1b8e4df2b4"
   
   deps = []
   deps += [":vcell-v0_1_3"]
 
   rustenv = ["CARGO_PKG_NAME=volatile-register","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/volatile-register")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=ecc84c751d686054","-Cextra-filename=-ecc84c751d686054"]
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=9f1eec1b8e4df2b4","-Cextra-filename=-9f1eec1b8e4df2b4"]
 
   
 }
@@ -1239,7 +1317,7 @@ rust_library("yoke-v0_3_1") {
   output_name = "yoke-e026154b2a5f106b"
   
   deps = []
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
   deps += [":stable_deref_trait-v1_2_0"]
   deps += [":yoke-derive-v0_1_2($host_toolchain)"]
 
@@ -1256,10 +1334,10 @@ rust_proc_macro("yoke-derive-v0_1_2") {
   output_name = "yoke_derive-9fd73d593cbdf7a0"
   
   deps = []
-  deps += [":proc-macro2-v1_0_27"]
-  deps += [":quote-v1_0_9"]
-  deps += [":syn-v1_0_73"]
-  deps += [":synstructure-v0_12_4"]
+  deps += [":proc-macro2-v1_0_32"]
+  deps += [":quote-v1_0_10"]
+  deps += [":syn-v1_0_81"]
+  deps += [":synstructure-v0_12_6"]
 
   rustenv = ["CARGO_PKG_NAME=yoke-derive","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/utils/yoke/derive")+""]
 
@@ -1268,18 +1346,18 @@ rust_proc_macro("yoke-derive-v0_1_2") {
   
 }
 
-rust_library("zerovec-v0_4_1") {
+rust_library("zerovec-v0_5_0") {
   crate_name = "zerovec"
   crate_root = "//third_party/externals/icu4x/utils/zerovec/src/lib.rs"
-  output_name = "zerovec-390f100c3d88f80d"
+  output_name = "zerovec-504cc317e01b5790"
   
   deps = []
-  deps += [":serde-v1_0_128"]
+  deps += [":serde-v1_0_130"]
   deps += [":yoke-v0_3_1"]
 
   rustenv = ["CARGO_PKG_NAME=zerovec","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/utils/zerovec")+""]
 
-  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=390f100c3d88f80d","-Cextra-filename=-390f100c3d88f80d","--cfg=feature=\"serde\"","--cfg=feature=\"yoke\""]
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=504cc317e01b5790","-Cextra-filename=-504cc317e01b5790","--cfg=feature=\"serde\"","--cfg=feature=\"yoke\""]
 
   
 }
