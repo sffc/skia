@@ -451,6 +451,7 @@ static_library("icu_capi-v0_1_0") {
   deps += [":icu_properties-v0_4_0"]
   deps += [":icu_provider-v0_4_0"]
   deps += [":icu_provider_blob-v0_4_0"]
+  deps += [":icu_segmenter-v0_1_0"]
   deps += [":icu_testdata-v0_4_0"]
   deps += [":tinystr-v0_4_11"]
   deps += [":writeable-v0_2_1"]
@@ -662,6 +663,25 @@ rust_proc_macro("icu_provider_macros-v0_4_0") {
   rustenv = ["CARGO_PKG_NAME=icu_provider_macros","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/provider/macros")+""]
 
   rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=c319d5377346c96","-Cextra-filename=-c319d5377346c96"]
+
+  
+}
+
+rust_library("icu_segmenter-v0_1_0") {
+  crate_name = "icu_segmenter"
+  crate_root = "//third_party/externals/icu4x/experimental/segmenter/src/lib.rs"
+  output_name = "icu_segmenter-304c1d21b6ff6bf9"
+  
+  deps = []
+  deps += [":icu_provider-v0_4_0"]
+  deps += [":lazy_static-v1_4_0"]
+  deps += [":serde-v1_0_130"]
+  deps += [":serde_json-v1_0_69"]
+  deps += [":unicode-width-v0_1_9"]
+
+  rustenv = ["CARGO_PKG_NAME=icu_segmenter","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/experimental/segmenter")+""]
+
+  rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=304c1d21b6ff6bf9","-Cextra-filename=-304c1d21b6ff6bf9","--cfg=feature=\"default\""]
 
   
 }
@@ -1270,6 +1290,20 @@ rust_library("ucd-trie-v0_1_3") {
   rustenv = ["CARGO_PKG_NAME=ucd-trie","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/ucd-trie")+""]
 
   rustflags = ["--cap-lints=allow","--edition=2018","-Cmetadata=67d309b078781399","-Cextra-filename=-67d309b078781399","--cfg=feature=\"default\"","--cfg=feature=\"std\""]
+
+  
+}
+
+rust_library("unicode-width-v0_1_9") {
+  crate_name = "unicode_width"
+  crate_root = "//third_party/externals/icu4x/vendor/unicode-width/src/lib.rs"
+  output_name = "unicode_width-b1dfb1043b380e8b"
+  
+  deps = []
+
+  rustenv = ["CARGO_PKG_NAME=unicode-width","CARGO_MANIFEST_DIR="+rebase_path("//third_party/externals/icu4x/vendor/unicode-width")+""]
+
+  rustflags = ["--cap-lints=allow","--edition=2015","-Cmetadata=b1dfb1043b380e8b","-Cextra-filename=-b1dfb1043b380e8b","--cfg=feature=\"default\""]
 
   
 }
