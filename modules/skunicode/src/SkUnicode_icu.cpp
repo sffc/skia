@@ -163,6 +163,59 @@ void SkBidiIterator::ReorderVisual(const Level runLevels[], int levelsCount,
     sk_ubidi_reorderVisual(runLevels, levelsCount, logicalFromVisual);
 }
 
+class SkBreakIterator_icu4x: public SkBreakIterator {
+    ICU4XLineBreakSegmenter* fSegmenter;
+    ICU4XLineBreakIterator* fIterator;
+    Position fLastResult;
+
+ public:
+    explicit SkBreakIterator_icu4x(ICU4XLineBreakSegmenter* segmenter)
+        : fSegmenter(segmenter), fIterator(nullptr), fLastResult(0) {
+    }
+
+    ~SkBreakIterator_icu4x() {
+        ICU4XLineBreakSegmenter_destroy(fSegmenter);
+        ICU4XLineBreakIterator_destroy(fIterator);
+    }
+
+    Position first() override {
+        // Set the iterator position to zero, the start of the text being scanned.
+        // TODO: Implement this correctly
+        return fLastResult;
+    }
+    Position current() override {
+        return fLastResult;
+    }
+    Position next() override {
+        return fLastResult = ICU4XLineBreakIterator_next(fIterator);
+    }
+    Position preceding(Position offset) override {
+        // TODO: Implement this correctly
+        return fLastResult = offset;
+    }
+    Position following(Position offset) override {
+        // TODO: Implement this correctly
+        return fLastResult = offset;
+    }
+    Status status() override {
+        // TODO: Implement this correctly
+        return 0;
+    }
+    bool isDone() override {
+        return fLastResult == -1;
+    }
+
+    bool setText(const char utftext8[], int utf8Units) override {
+        ICU4XLineBreakIterator_destroy(fIterator);
+        fIterator = ICU4XLineBreakSegmenter_segment_str(fSegmenter, utftext8, utf8Units);
+        return true;
+    }
+    bool setText(const char16_t utftext16[], int utf16Units) override {
+        // TODO: Add UTF-16 support to FFI
+        return false;
+    }
+};
+
 class SkBreakIterator_icu : public SkBreakIterator {
     ICUBreakIterator fBreakIterator;
     Position fLastResult;
@@ -274,6 +327,7 @@ class SkScriptIterator_icu : public SkScriptIterator {
         }
         uint16_t scriptCode = result.data.value().get(u);
         // */
+        /*
         auto dp = ICU4XDataProvider_create_empty();
         if (!dp.success) {
             // TODO: Cleanup
@@ -450,6 +504,16 @@ public:
     }
     std::unique_ptr<SkBreakIterator> makeBreakIterator(const char locale[],
                                                        BreakType breakType) override {
+        /*
+        // TODO: BreakType
+        auto segmenter = ICU4XLineBreakSegmenter_try_new();
+        if (!segmenter.is_ok) {
+            SkDEBUGF("Could not create ICU4X Segmenter");
+            return nullptr;
+        }
+        return std::unique_ptr<SkBreakIterator>(new SkBreakIterator_icu4x(segmenter.ok));
+        // */
+        /*
         UErrorCode status = U_ZERO_ERROR;
         ICUBreakIterator iterator(sk_ubrk_open(convertType(breakType), locale, nullptr, 0,
                                                &status));
@@ -458,6 +522,8 @@ public:
             return nullptr;
         }
         return std::unique_ptr<SkBreakIterator>(new SkBreakIterator_icu(std::move(iterator)));
+        // */
+        return nullptr;
     }
     std::unique_ptr<SkBreakIterator> makeBreakIterator(BreakType breakType) override {
         return makeBreakIterator(sk_uloc_getDefault(), breakType);

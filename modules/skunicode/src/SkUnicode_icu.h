@@ -16,6 +16,8 @@
 
 #include <ICU4XCodePointMapData16.h>
 #include <ICU4XCodePointMapData16Response.h>
+#include <ICU4XLineBreakSegmenter.h>
+#include <ICU4XLineBreakIterator.h>
 
 #include "include/private/SkTemplates.h"
 
