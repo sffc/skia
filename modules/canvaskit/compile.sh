@@ -394,6 +394,7 @@ EMCC_DEBUG=1 ${EMCXX} \
     $PARAGRAPH_LIB \
     $BUILD_DIR/libskshaper.a \
     $SHAPER_LIB \
+    $BUILD_DIR/obj/third_party/icu4x/target/libicu_capi-a9f7132ddaccd0e5.a \
     $BUILD_DIR/libskia.a \
     $BUILTIN_FONT \
     -s LLD_REPORT_UNDEFINED \

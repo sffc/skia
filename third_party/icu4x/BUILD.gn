@@ -1,0 +1,14 @@
+# Copyright 2021 Google Inc.
+#
+# Use of this source code is governed by a BSD-style license that can be
+# found in the LICENSE file.
+
+config("config") {
+  include_dirs = [
+    "../externals/icu4x/ffi/diplomat/c/include",
+  ]
+}
+
+group("icu_capi") {
+  deps = ["target:icu_capi"]
+}
